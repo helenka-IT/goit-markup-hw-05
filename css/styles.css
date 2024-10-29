@@ -480,10 +480,12 @@ a {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(46, 47, 66, 0.4);
   opacity: 0;
+  /* visibility: hidden; */
   pointer-events: none;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) visibility 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-backdrop.is-open {
@@ -492,16 +494,19 @@ a {
 }
 
 .modal {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 408px;
   height: 80%;
-  max-height: 584px;
+  min-height: 584px;
   overflow: auto;
   background-color: #fcfcfc;
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
-  padding: 24px;
+  padding: 72px 24px 24px 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-close-btn {
   position: absolute;
@@ -543,20 +548,17 @@ a {
   color: #2e2f42;
   line-height: 24px;
   margin-bottom: 16px;
+  letter-spacing: 0.02em;
 }
 
 .form-container {
-  /* display: flex; */
-  /* align-items: flex-start; */
-  /* justify-content: flex-start; */
-  /* flex-direction: column; */
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .form-label {
   display: block;
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
   margin-bottom: 4px;
@@ -572,6 +574,7 @@ a {
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   background-color: transparent;
+  outline: transparent;
   padding-left: 38px;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -585,9 +588,8 @@ a {
   top: 50%;
   left: 16px;
   transform: translateY(-50%);
-  stroke: #2e2f42;
-  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-input:focus {
@@ -605,13 +607,14 @@ a {
   height: 120px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
+  outline: transparent;
   background-color: transparent;
   padding: 8px 16px;
   resize: none;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  color: #111111;
+  color: rgba(46, 47, 66, 0.4);
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-input-comment:focus {
@@ -627,7 +630,7 @@ a {
 }
 .checkbox-label {
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
 }
@@ -649,12 +652,15 @@ a {
   cursor: pointer;
   fill: transparent;
   margin-right: 8px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkbox-input:checked + .checkbox-label > .checkbox-form-custom {
   background-color: rgb(64, 75, 191);
-  border-color: #404bbf;
-  fill: #ffffff;
+  fill: #f4f4fd;
+  border: none;
 }
 
 /* .checkbox-input:focus + .checkbox-label > .checkbox-form-custom {
