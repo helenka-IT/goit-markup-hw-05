@@ -718,9 +718,9 @@ a {
   border: none;
 }
 
-/* .checkbox-input:focus + .checkbox-label > .checkbox-form-custom {
+.checkbox-input:focus + .checkbox-label > .checkbox-form-custom {
   outline: 1px solid rgb(64, 75, 191);
-} */
+}
 
 .button .checkbox-btn {
   display: flex;
