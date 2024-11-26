@@ -498,7 +498,9 @@ a {
   color: #ffffff;
   padding-left: 16px;
 }
-
+.footer-form-input::placeholder {
+  color: #fff;
+}
 .footer-subscribe-button {
   display: flex;
   align-items: center;
